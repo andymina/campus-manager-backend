@@ -19,12 +19,7 @@ router.get('/:id', ash(async(req, res) => {
 
 /** ADD NEW CAMPUS */
 router.post('/', function(req, res, next) {
-  // Set options for find or create
-  let options = {
-    where: { name: req.body.name }, // email should be a student's unique identifier
-    default: req.body // if no student with that email was found, create a student with the req.body
-  };
-  Campus.findOrCreate(options)
+  Campus.create(req.body)
     .then(createdCampus => res.status(200).json(createdCampus))
     .catch(err => next(err));
 });

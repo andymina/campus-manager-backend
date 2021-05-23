@@ -22,7 +22,8 @@ const Student = db.define("student", {
     allowNull: false,
     validate: {
       isEmail: true
-    }
+    },
+    unique: true
   },
 
   imageUrl: {
